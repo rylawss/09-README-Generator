@@ -1,27 +1,57 @@
+const licenses = [
+  {
+    name: "Apache",
+    url: "https://opensource.org/licenses/Apache-2.0",
+    badge: "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+  },
+  {
+    name: "Boost",
+    url: "https://www.boost.org/LICENSE_1_0.txt",
+    badge: "https://img.shields.io/badge/License-Boost_1.0-lightblue.svg",
+  },
+  {
+    name: "BSD 3-Clause License",
+    url: "https://opensource.org/licenses/BSD-3-Clause",
+    badge: "https://img.shields.io/badge/License-BSD_3--Clause-blue.svg",
+  },
+  {
+    name: "Eclipse Public License 1.0",
+    url: "https://opensource.org/licenses/EPL-1.0",
+    badge: "https://img.shields.io/badge/License-EPL_1.0-red.svg",
+  },
+  {
+    name: "GNU GPL v3",
+    url: "https://www.gnu.org/licenses/gpl-3.0",
+    badge: "https://img.shields.io/badge/License-GPLv3-blue.svg",
+  },
+  {
+    name: "ISC",
+    url: "https://opensource.org/licenses/ISC",
+    badge: "https://img.shields.io/badge/License-ISC-blue.svg",
+  },
+  {
+    name: "MIT",
+    url: "https://opensource.org/licenses/MIT",
+    badge: "https://img.shields.io/badge/License-MIT-yellow.svg",
+  },
+  {
+    name: "Mozilla",
+    url: "https://opensource.org/licenses/MPL-2.0",
+    badge: "https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg",
+  },
+];
+
 // TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  //string "this project is form X licesnse"
-  //(https://img.shields.io/badge/License-Apache_2.0-blue.svg)
-  // function licenseChoice(value) {
-  // if (value === "MIT") {
-  //   return "MIT";
-  // } else if (value === "Apache") {
-  //   return "Apache";
-  //} else if (value === "GPL") {
-  ///   return "GPL";
-  //} else if (value === "BSD") {
-  // return "BSD";
-  //} else {
-  //  return "None";
-  // }
-  //}
+  const licenseBadge = licenses.filter((license) => license.name === license);
+  return licenseBadge[0].badge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  //https://opensource.org/licenses/Apache-2.0)
+  const licenseLink = licenses.filter((license) => license.name === license);
+  return licenseLink[0].url;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -31,7 +61,7 @@ function renderLicenseSection(license) {
     return "";
   }
   return `## License
-  this project is licsensed under ${renderLicenseLink(license)}`;
+  this project is licensed under ${renderLicenseLink(license)}`;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -39,10 +69,19 @@ function generateMarkdown(data) {
   return `${renderLicenseBadge(data.license)}
 # ${data.title}
 
+## Table of Contents
+[Description](#description)
+[Installation](#installation)
+[Usage](#usage)
+[Contribution](#contribution)
+[Test](#test)
+[License](#license)
+[Questions](#questions)
+
 ## Description
 ${data.description}
 
-## instalation
+## Installation
 ${data.installation}
 
 ## Usage
