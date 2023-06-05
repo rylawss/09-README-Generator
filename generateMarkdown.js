@@ -1,56 +1,71 @@
 const licenses = [
   {
     name: "Apache",
-    url: "https://opensource.org/licenses/Apache-2.0",
-    badge: "https://img.shields.io/badge/License-Apache_2.0-blue.svg",
+    url: "[Apache 2.0](https://opensource.org/licenses/Apache-2.0)",
+    badge:
+      "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
   },
   {
     name: "Boost",
-    url: "https://www.boost.org/LICENSE_1_0.txt",
-    badge: "https://img.shields.io/badge/License-Boost_1.0-lightblue.svg",
+    url: "[Boost](https://www.boost.org/LICENSE_1_0.txt)",
+    badge:
+      "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
   },
   {
     name: "BSD 3-Clause License",
-    url: "https://opensource.org/licenses/BSD-3-Clause",
-    badge: "https://img.shields.io/badge/License-BSD_3--Clause-blue.svg",
+    url: "[BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause)",
+    badge:
+      "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
   },
   {
     name: "Eclipse Public License 1.0",
-    url: "https://opensource.org/licenses/EPL-1.0",
-    badge: "https://img.shields.io/badge/License-EPL_1.0-red.svg",
+    url: "[Eclipse Public License 1.0](https://opensource.org/licenses/EPL-1.0)",
+    badge:
+      "[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)",
   },
   {
     name: "GNU GPL v3",
-    url: "https://www.gnu.org/licenses/gpl-3.0",
-    badge: "https://img.shields.io/badge/License-GPLv3-blue.svg",
+    url: "[GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0)",
+    badge:
+      "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)",
   },
   {
     name: "ISC",
-    url: "https://opensource.org/licenses/ISC",
-    badge: "https://img.shields.io/badge/License-ISC-blue.svg",
+    url: "[ISC](https://opensource.org/licenses/ISC)",
+    badge:
+      "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)",
   },
   {
     name: "MIT",
-    url: "https://opensource.org/licenses/MIT",
-    badge: "https://img.shields.io/badge/License-MIT-yellow.svg",
+    url: "[MIT](https://opensource.org/licenses/MIT)",
+    badge:
+      "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   },
   {
     name: "Mozilla",
-    url: "https://opensource.org/licenses/MPL-2.0",
-    badge: "https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg",
+    url: "[Mozilla](https://opensource.org/licenses/MPL-2.0)",
+    badge:
+      "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)",
   },
 ];
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
-  const licenseBadge = licenses.filter((license) => license.name === license);
+  if (license === "None") {
+    return "";
+  }
+  const licenseBadge = licenses.filter(
+    (licenseObject) => licenseObject.name === license
+  );
   return licenseBadge[0].badge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  const licenseLink = licenses.filter((license) => license.name === license);
+  const licenseLink = licenses.filter(
+    (licenseObject) => licenseObject.name === license
+  );
   return licenseLink[0].url;
 }
 
@@ -61,7 +76,7 @@ function renderLicenseSection(license) {
     return "";
   }
   return `## License
-  this project is licensed under ${renderLicenseLink(license)}`;
+  This project is licensed under ${renderLicenseLink(license)}`;
 }
 
 // TODO: Create a function to generate markdown for README
@@ -70,13 +85,13 @@ function generateMarkdown(data) {
 # ${data.title}
 
 ## Table of Contents
-[Description](#description)
-[Installation](#installation)
-[Usage](#usage)
-[Contribution](#contribution)
-[Test](#test)
-[License](#license)
-[Questions](#questions)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Test](#test)
+- [Questions](#questions)
+${data.license === "None" ? "" : " - [License](#license)"}
 
 ## Description
 ${data.description}
@@ -93,12 +108,13 @@ ${data.contribution}
 ## Test
 ${data.test}
 
-
-${renderLicenseSection(data.license)}
-
 ## Questions
 GitHub: [${data.github}](https://github.com/${data.github})
 email: ${data.email}
+
+${renderLicenseSection(data.license)}
+
+
 
 `;
 }

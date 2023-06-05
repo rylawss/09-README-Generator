@@ -1,7 +1,0 @@
-# ${title}
-
-## Description
-
-${description}
-
-## instalation
