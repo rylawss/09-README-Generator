@@ -1,5 +1,5 @@
-
-# a
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# README Generator
 
 ## Table of Contents
 - [Description](#description)
@@ -7,28 +7,30 @@
 - [Usage](#usage)
 - [Contribution](#contribution)
 - [Test](#test)
-
 - [Questions](#questions)
+ - [License](#license)
 
 ## Description
-a
+this project created readme files quickly
 
 ## Installation
-a
+none
 
 ## Usage
-a
+users should follow the prompts as shown to fill in the sections of their readme
 
 ## Contribution
-a
+none
 
 ## Test
-a
-
-
-
+none
 
 ## Questions
-GitHub: [a](https://github.com/a)
-email: a
+GitHub: [rylawss](https://github.com/rylawss)
+email: rylaw45@gmail.com
+
+## License
+  This project is licensed under [MIT](https://opensource.org/licenses/MIT)
+
+
 
