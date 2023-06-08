@@ -20,7 +20,7 @@ The user should open up the command line. Once there the user can run node index
 
 ## Video
 
-https://drive.google.com/file/d/1ijhJZK54yohF8eaX_-dEgARnG0KBxbXt/view?usp=drive_link
+[https://drive.google.com/file/d/1ijhJZK54yohF8eaX_-dEgARnG0KBxbXt/view?usp=drive_link](https://drive.google.com/file/d/1ijhJZK54yohF8eaX_-dEgARnG0KBxbXt/view?usp=sharing)
 
 ## Questions
 
